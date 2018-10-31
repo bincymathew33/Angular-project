@@ -1,17 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="container">
   <!-- <h2 *ngIf="showsection">Title from parent</h2>
  <app-test3 
   [myTitle]="title"
   (onEnd)="myfun(val)"
   ></app-test3> 
-  <app-slideshow [list]="catlist" (onEnd)="oncatshowcomplete($event)"></app-slideshow>
-  <app-slideshow [list]="doglist" (onEnd)="ondogshowcomplete($event)"></app-slideshow> -->
-<ul>
+
+
+  
+
+<!-- <ul>
   <li *ngFor="let user of users">
 {{user.name}}
   </li>
- </ul>
+ </ul> -->
+<app-header></app-header>
+ <app-slideshow [list]="catlist" (onEnd)="oncatshowcomplete($event)"></app-slideshow>
+  <app-slideshow [list]="doglist" (onEnd)="ondogshowcomplete($event)"></app-slideshow> 
 </div>
 
 

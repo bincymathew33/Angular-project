@@ -28,27 +28,39 @@ export class AppComponent {
 // dogList:string[]=['assets/images/sponser.png',
 // 'assets/images/ag.jpg',
 // 'assets/images/Phil68.jpg'];
-// oncatshowcomplete(urlvale)
-// {
-// //alert('cat show completed');
+oncatshowcomplete(urlvale)
+{
+// alert('cat show completed');
 // console.log(urlvale);
-// }
-// ondogshowcomplete(urlvale)
-// {
-// //alert('dog show complete');
+this.imageservice.onSlideShowEnd.next('catslideshow');
+}
+ondogshowcomplete(urlvale)
+{
+// alert('dog show complete');
 // console.log(urlvale);
-// }
+this.imageservice.onSlideShowEnd.next('dogslideshow');
+}
 ngOnInit()
  {
  
- this.service.getUservalue().subscribe((users:IUser[])=>
+ this.service.getUservalue().subscribe((user:IUser[])=>
  {
-   this.users=users;
+   this.users=user;
  });
-  
+ this.imageservice.getList().subscribe (list=>{
+ console.log(list);
+ this.catlist=list.cats;
+ this.doglist=list.dogs;
+ });
+//  this.imageservice.getcatlist().subscribe (catlist=>{
+// this.catlist=catlist;
+//  });
 
- this.catlist=this.imageservice.getcatlist();
- this.doglist=this.imageservice.getdoglist();
+//  this.imageservice. getdoglist().subscribe (doglist=>{
+//   this.doglist=doglist;
+//    });
+//  this.catlist=this.imageservice.getcatlist();
+//  this.doglist=this.imageservice.getdoglist();
 }
 constructor(private service:AppService, private imageservice:App2Service)
 {
