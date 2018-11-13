@@ -14,10 +14,70 @@
 {{user.name}}
   </li>
  </ul> -->
-<app-header></app-header>
+<!-- <app-header></app-header>
  <app-slideshow [list]="catlist" (onEnd)="oncatshowcomplete($event)"></app-slideshow>
-  <app-slideshow [list]="doglist" (onEnd)="ondogshowcomplete($event)"></app-slideshow> 
+  <app-slideshow [list]="doglist" (onEnd)="ondogshowcomplete($event)"></app-slideshow>  -->
+  
+  <app-test [Movielist]="buttonlist" (output)="selectedvalue($event)"></app-test>
+  <!-- <app-test1 [menuvalue]="Menulist" (onEnd)="menuitemclick($event)"></app-test1> -->
+
+
+
+
+<div *ngFor="let list of Movielist let i = index">
+    <button (click)="selectedvalue(i)">{{list}}</button>
+  
+  
+    
+  </div>
+  
+  <div *ngIf="choosevaluel === 1">
+      <h2>Add Employee</h2>
+      <p>
+   Title: <input type="text" [(ngModel)]="newMovieList.title">
+   
+  </p>
+  <p>
+  Actor: <input type="text" [(ngModel)]="newMovieList.actor" (keyup.enter)="addemployee()">
+  </p>
+  </div>
+  <div *ngIf="choosevaluel === 0">
+    
+  <table>
+    <thead>
+  <tr>
+    <th>Title</th>
+    <th>Actor</th>
+    <th></th>
+  </tr>
+  </thead>
+    <tbody>
+  <tr *ngFor="let movie of movieList let i = index" [ngClass]="{'selectvalue':movie.selected}">
+    <td>
+  {{movie.title}}
+    </td>
+    <td>
+        {{movie.actor}}
+    </td>
+    <td>
+        <button (click)="selectedmovie(movie)">View</button>
+        
+    </td>
+    <td>
+      <button (click)="deletemovie(i)">Delete</button>
+      
+  </td>
+  </tr>
+    </tbody>
+  </table>
+  </div>
+  
+  <div *ngIf="selectedmovie1 ">
+  <h2>Selected Movie</h2>
+  <p>Title:{{selectedmovie1.title}}</p>
+  <p>Actor:{{selectedmovie1.actor}}</p>
+  </div>
+  
+  
 </div>
-
-
 

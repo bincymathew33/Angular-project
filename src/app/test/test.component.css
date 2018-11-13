@@ -1,0 +1,13 @@
+table{
+    border:2px solid blue;
+}
+tr.selectvalue
+{
+    background-color: yellow;
+}
+.active
+{
+background-color: green;
+font:bold;
+color: white;
+}

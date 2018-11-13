@@ -8,7 +8,12 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 export class Test1Component implements OnInit {
   inputvalue="input";
  
+@Input()
 
+  menuvalue : Array<string>;
+
+  @Output()
+onEnd: EventEmitter<string>=new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
@@ -17,5 +22,11 @@ export class Test1Component implements OnInit {
   onbtnclick(myval)
   {
    alert(this.inputvalue);
+  }
+  menuitemclick(e,menu)
+  {
+    // e.preventDefault();
+  
+    this.onEnd.emit(menu);
   }
 }

@@ -1,5 +1,31 @@
+<h2>Employee Management System</h2>
+<!-- <div>
+  <button [ngClass]="{'active':choosevalue === 'listvalue'}"(click)="selectedvalue('listvalue')">Home</button>
 
 
+  <button [ngClass]="{'active':choosevalue === 'addemployee'}"(click)="selectedvalue('addemployee')">Add Employee</button>
+</div> -->
+
+
+<div *ngFor="let list of Movielist let i = index">
+  <button [ngClass]="{'active':activeindex === i}"(click)="onbuttonclick(i)">{{list}}</button>
+
+
+  
+<!-- </div>
+
+<div *ngIf="choosevalue === 'addemployee'">
+    <h2>Add Employee</h2>
+    <p>
+ Title: <input type="text" [(ngModel)]="newMovieList.title">
+ 
+</p>
+<p>
+Actor: <input type="text" [(ngModel)]="newMovieList.actor" (keyup.enter)="addemployee()">
+</p>
+</div>
+<div *ngIf="choosevalue ==='listvalue'">
+  
 <table>
   <thead>
 <tr>
@@ -9,7 +35,7 @@
 </tr>
 </thead>
   <tbody>
-<tr *ngFor="let movie of movieList">
+<tr *ngFor="let movie of movieList let i = index" [ngClass]="{'selectvalue':movie.selected}">
   <td>
 {{movie.title}}
   </td>
@@ -17,17 +43,22 @@
       {{movie.actor}}
   </td>
   <td>
-      <button (click)="selectedmovie(movie.title,movie.actor)">View</button>
+      <button (click)="selectedmovie(movie)">View</button>
       
   </td>
+  <td>
+    <button (click)="deletemovie(i)">Delete</button>
+    
+</td>
 </tr>
   </tbody>
 </table>
-<div *ngIf="title.length>0 &&actor.length>0">
+</div> -->
+
+<!-- <div *ngIf="selectedmovie1 ">
 <h2>Selected Movie</h2>
-<p>Title:{{title}}</p>
-<p>Author:{{actor}}</p>
-</div>
-<div *ngIf="title.length==0">
-  <h2>No Movie to selected</h2>
-</div>
+<p>Title:{{selectedmovie1.title}}</p>
+<p>Actor:{{selectedmovie1.actor}}</p>
+</div> -->
+
+

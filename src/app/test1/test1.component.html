@@ -1,9 +1,27 @@
 <!-- <input type="text" #output [value]="inputvalue"> -->
 <!-- <input type="text" [(ngModel)]="inputvalue"> -->
 
-<button (click)="onbtnclick()" >Click Me</button>
+<!-- <button (click)="onbtnclick()" >Click Me</button>
 
 <div>
     {{inputvalue}}
-</div>
+</div> -->
+<ul>
+    <li *ngFor="let menu of menuvalue">
+<a href="#"(click)="menuitemclick($menu,menu)">{{menu}}</a>
+    </li>
+</ul>
+
+
+
+
+
+<h2>Employee Management System</h2>
+<!-- <div>
+  <button [ngClass]="{'active':choosevalue === 'listvalue'}"(click)="selectedvalue('listvalue')">Home</button>
+
+
+  <button [ngClass]="{'active':choosevalue === 'addemployee'}"(click)="selectedvalue('addemployee')">Add Employee</button>
+</div> -->
+
 
