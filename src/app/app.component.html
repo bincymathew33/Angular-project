@@ -9,25 +9,32 @@
 
   
 
-<!-- <ul>
+ <ul>
   <li *ngFor="let user of users">
 {{user.name}}
   </li>
- </ul> -->
+ </ul> 
+
+ <app-test1 [listvalue]="users" ></app-test1>
+ 
 <!-- <app-header></app-header>
  <app-slideshow [list]="catlist" (onEnd)="oncatshowcomplete($event)"></app-slideshow>
   <app-slideshow [list]="doglist" (onEnd)="ondogshowcomplete($event)"></app-slideshow>  -->
   
-  <app-test [Movielist]="buttonlist" (output)="selectedvalue($event)"></app-test>
+  <!-- //<app-test [users]="buttonlist" (output)="selectedvalue($event)"></app-test> -->
   <!-- <app-test1 [menuvalue]="Menulist" (onEnd)="menuitemclick($event)"></app-test1> -->
 
-
-
+  <!-- <ul>
+    <li *ngFor="let user of moviel">
+  {{user.title}}
+    </li>
+  </ul> -->
+  <app-directives></app-directives>
 
 <div *ngFor="let list of Movielist let i = index">
     <button (click)="selectedvalue(i)">{{list}}</button>
   
-  
+    <app-directives></app-directives>
     
   </div>
   
@@ -52,13 +59,16 @@
   </tr>
   </thead>
     <tbody>
-  <tr *ngFor="let movie of movieList let i = index" [ngClass]="{'selectvalue':movie.selected}">
+  <tr *ngFor="let movie of moviel let i = index" [ngClass]="{'selectvalue':movie.selected}">
     <td>
   {{movie.title}}
     </td>
     <td>
         {{movie.actor}}
     </td>
+    <td>
+      {{movie.title | movieGener:movie}}
+  </td>
     <td>
         <button (click)="selectedmovie(movie)">View</button>
         
@@ -81,3 +91,5 @@
   
 </div>
 
+<!-- //pipe -->
+<p>{{pipe | movieGener}}</p>

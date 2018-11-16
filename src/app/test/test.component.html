@@ -1,4 +1,6 @@
 <h2>Employee Management System</h2>
+
+<h2>{{counter}}</h2>
 <!-- <div>
   <button [ngClass]="{'active':choosevalue === 'listvalue'}"(click)="selectedvalue('listvalue')">Home</button>
 
@@ -7,7 +9,8 @@
 </div> -->
 
 
-<div *ngFor="let list of Movielist let i = index">
+<div *ngFor="let list of movieList let i = index">
+  {{list}}
   <button [ngClass]="{'active':activeindex === i}"(click)="onbuttonclick(i)">{{list}}</button>
 
 

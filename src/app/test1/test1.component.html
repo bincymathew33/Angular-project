@@ -1,18 +1,17 @@
 <!-- <input type="text" #output [value]="inputvalue"> -->
-<!-- <input type="text" [(ngModel)]="inputvalue"> -->
+<!-- <input type="text" [(ngModel)]="inputvalue">
 
-<!-- <button (click)="onbtnclick()" >Click Me</button>
+ <button (click)="onbtnclick()" >Click Me</button>
 
-<div>
+ <div>
     {{inputvalue}}
-</div> -->
-<ul>
-    <li *ngFor="let menu of menuvalue">
-<a href="#"(click)="menuitemclick($menu,menu)">{{menu}}</a>
-    </li>
-</ul>
-
-
+</div>  -->
+ <ul>
+  <li *ngFor="let user of listvalue">
+<p>{{user.name}}</p>
+<p>{{user.age}}</p>
+  </li>
+ </ul>
 
 
 

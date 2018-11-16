@@ -1,11 +1,13 @@
 import { Component ,OnInit,Input,Output,EventEmitter} from '@angular/core';
 import { AppService } from './app.service';
 import { App2Service } from './app2.service';
-import { IUser } from './models/user';
+//import { IUser } from './models/user';
 
 
 
 import {  movies} from './models/movielistclass';
+import {  Movie} from './models/movie';
+import { IUser } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +15,19 @@ import {  movies} from './models/movielistclass';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  users:IUser[]=[];
+ users:IUser[]=[];
+  moviel:Movie[]=[];
   catlist:string[]=[];
   doglist:string[]=[];
   Menulist:Array<string>=['Home' ,'About' ,'ContactUs'];
-  buttonlist:Array<string>=['View','AddEmployee'];
+  buttonlist:Array<string>=['View','AddMovie'];
   list:string[];
   title = 'myapp1';
   description="details";
   showsection=false;
+  counter=0;
+  pipe="bincy";
+  pipe1='merin';
 activeindex="";
   menuitemclick(item)
   {
@@ -56,7 +62,16 @@ ngOnInit()
  
  this.service.getUservalue().subscribe((user:IUser[])=>
  {
+  
    this.users=user;
+  
+ });
+
+ this.service.getMovieList().subscribe((moviel:Movie[])=>
+ {
+  
+   this.moviel=moviel;
+  
  });
  this.imageservice.getList().subscribe (list=>{
  console.log(list);
@@ -109,14 +124,15 @@ onbuttonclick(i)
  this.output.emit(i)
 }
 movieList :Array<movies> =[
-  new movies('Yanthiran','Rajanikanth')
+  new movies('Yanthiran','Rajanikanth'),
+  new movies('Gilli','Surya')
 ]
 newMovieList : movies  =new movies('','');
 //newMovieList : MovieList  = {title:'',actor:''};
   
  clearselection()
  {
-   this.movieList.forEach(emp =>emp.selected=false);
+   this.moviel.forEach(emp =>emp.selected=false);
  }
 
 
@@ -129,16 +145,17 @@ newMovieList : movies  =new movies('','');
   }
   addemployee(){
     
-    this.movieList.push(
+    this.moviel.push(
     this.newMovieList
    )
-  
+   this.service.movieLister.next(this.moviel);
   }
   deletemovie(i)
   {
     
-    this.movieList.splice(i )
+    this.moviel.splice(i )
     this.clearselection();
+  
   }
   selectedvalue(selectvalue)
   {

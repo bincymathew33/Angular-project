@@ -1,5 +1,5 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
-
+import { IUser } from '../models/user';
 @Component({
   selector: 'app-test1',
   templateUrl: './test1.component.html',
@@ -8,9 +8,12 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 export class Test1Component implements OnInit {
   inputvalue="input";
  
-@Input()
+// @Input()
 
-  menuvalue : Array<string>;
+//   menuvalue : Array<string>;
+  @Input()
+
+  listvalue : IUser[];
 
   @Output()
 onEnd: EventEmitter<string>=new EventEmitter<string>();
@@ -19,14 +22,14 @@ onEnd: EventEmitter<string>=new EventEmitter<string>();
   ngOnInit() {
    
   }
-  onbtnclick(myval)
-  {
-   alert(this.inputvalue);
-  }
-  menuitemclick(e,menu)
-  {
-    // e.preventDefault();
+  // onbtnclick(myval)
+  // {
+  //  alert(this.inputvalue);
+  // }
+  // menuitemclick(e,menu)
+  // {
+  //   // e.preventDefault();
   
-    this.onEnd.emit(menu);
-  }
+  //   this.onEnd.emit(menu);
+  // }
 }

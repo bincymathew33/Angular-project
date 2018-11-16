@@ -1,6 +1,7 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import {  movies} from '../models/movielistclass';
-import { MovieList} from '../models/movie';
+import { Movie} from '../models/movie';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-test',
@@ -19,7 +20,10 @@ export class TestComponent implements OnInit {
 activeindex;
 choosevaluel=0;
 @Input()
-Movielist:Array<string>;
+moviel:Array<string>;
+@Input()
+movieList:Movie[];
+counter=0;
 @Output()
 output: EventEmitter<number>=new EventEmitter<number>();
 // // movieList :Array<MovieList> =[
@@ -36,6 +40,8 @@ output: EventEmitter<number>=new EventEmitter<number>();
 // //     actor:"Vikram"
 // //   },
 // // ];
+
+
 onbuttonclick(i)
 {
   
@@ -50,7 +56,17 @@ onbuttonclick(i)
 //   constructor() { }
 
   ngOnInit() {
+    this.service.movieLister.subscribe((moviel:Movie[])=>
+ {
+  
+   this.counter=moviel.length;
+  
+ });
   }
+  constructor(private service:AppService)
+{
+  
+}
 //  clearselection()
 //  {
 //    this.movieList.forEach(emp =>emp.selected=false);

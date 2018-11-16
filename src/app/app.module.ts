@@ -8,6 +8,9 @@ import { Test1Component } from './test1/test1.component';
 import { Test3Component } from './test3/test3.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { HeaderComponent } from './header/header.component';
+import { MovieGenerPipe } from './movie-gener.pipe';
+import { DirectivesComponent } from './directives/directives.component';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
@@ -22,7 +25,13 @@ import { HeaderComponent } from './header/header.component';
     
     SlideshowComponent,
     
-    HeaderComponent
+    HeaderComponent,
+    
+    MovieGenerPipe,
+    
+    DirectivesComponent,
+    
+    HighlightDirective
    
   ],
   imports: [
